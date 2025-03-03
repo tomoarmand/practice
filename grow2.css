@@ -1,0 +1,49 @@
+* {
+    border:1px solid black
+}
+
+body {
+    height:100vh;
+    display:flex;
+    justify-content:center;
+}
+
+.container {
+    display: flex;
+    flex-direction:column;
+    width:400px;
+    text-align:center
+}
+
+.heading {
+    font-weight:bold;
+}
+
+.content1 {
+    display:flex;
+    justify-content:column;
+}
+
+.image1{
+    height:50px;
+    width:50px;
+}
+
+.img-wrap {
+    height:100px;
+    width:100px;
+    overflow:hidden
+}
+
+.grow1{
+    display:flex;
+    flex-grow:1;
+    flex-direction:column
+}
+
+.img-wrap2 {
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    overflow:hidden
+}
