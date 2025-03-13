@@ -1,0 +1,66 @@
+html {
+    font-family: courier;
+}
+
+.website {
+    border: 2px black solid;
+    /* Adds a border to the outer div */
+    height: 320px;
+    width: 600px;
+    border-radius: 20px;
+    /* Rounds the corners of the border of outer div */
+    padding-bottom: 60px
+}
+
+h1 {
+    text-decoration: underline;
+    /* Underlines heading */
+    margin-left: 50px;
+    /* Adjusts h1 position from the left border of the website div */
+    padding-top: 8px;
+    /* Creates space between h1 and the top border of website div */
+    font-size: 1.7rem;
+    /* Selects font size */
+    font-weight: normal;
+}
+
+/* Selects font boldness */
+
+
+h2 {
+    margin-top: 9px;
+    padding-bottom: 15px;
+    /* Creates space between second heading and the text below */
+    font-size: 1.6rem;
+    font-weight: normal
+}
+
+.neighborhoods {
+    border: 2px black solid;
+    height: 215px;
+    width: 500px;
+    margin-left: 40px;
+    border-radius: 20px;
+    padding-left: 15px;
+    /* Adjusts space between the neighborhoods div left border and the content within */
+    background-color: #acd3e3;
+    /* Selects background color of the neighborhoods section */
+    margin-top: 60px;
+    /* Ads top margin to adjust space between neighborhoods div and the top of the the website div */
+}
+
+p {
+    font-size: 1rem;
+}
+
+.blue {
+    color: #04638c;
+}
+
+/* Targets Parnell and Onehunga text */
+
+.orange {
+    color: #ed930c
+}
+
+/* Targets Newmarket and CBD text */
