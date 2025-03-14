@@ -43,3 +43,19 @@ let object2 = {
 }
 
 console.log(object2.add())
+
+function anon (val1, val2) {
+    return val1 + val2;
+}
+
+console.log(anon("Seamus", 12));
+
+let named = function (val1, val2){
+    return val1 + val2;
+}
+
+console.log(named("James", 5));
+
+let arrow = (val1, val2) => val1 + val2;
+
+console.log(arrow(3, 5));
