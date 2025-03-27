@@ -1,0 +1,53 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.user-input {
+    height: 30px;
+    width: 150px;
+    text-align: center;
+}
+
+.display {
+    border: 1px solid black;
+    height: 30px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;       
+}
+
+.color-wrap {
+    height: 50px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.circle {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid black
+}
+
+.color-input {
+    text-align: center;
+
+}
