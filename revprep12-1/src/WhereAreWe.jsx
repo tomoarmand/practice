@@ -1,5 +1,5 @@
 export function WhereAreWe (props) {
     return (
-        <div>You are in {props.station}</div>
+        <div>You are currently in {props.station}</div>
     )
 }
