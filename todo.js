@@ -31,20 +31,24 @@ function displayOnPage(object, index) {
     itemText.innerText = object.title;
     itemText.classList = "item-text";
 
+    if (object.completed) {
+        itemText.classList.add("completed");
+    }// Applies completed class if the checkbox is checked
+
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "X";
     deleteButton.classList = "delete-button";
-    //Fix this!!!!!!!!!!!!1
-    const deleteCompleted = document.createElement("button");
-    deleteCompleted.innerText = "Delete all completed";
-    deleteCompleted.classList = "delete-completed";
+    // //Fix this!!!!!!!!!!!!1
+    // const deleteCompleted = document.createElement("button");
+    // deleteCompleted.innerText = "Delete all completed";
+    // deleteCompleted.classList = "delete-completed";
 
     listItem.appendChild(checkbox);
     listItem.appendChild(itemText);
     listItem.appendChild(deleteButton);
     displayField.appendChild(listItem);
-    //Fix this!!!!!!!
-    displayField.appendChild(deleteCompleted);
+    // //Fix this!!!!!!!
+    // displayField.appendChild(deleteCompleted);
 
     checkbox.addEventListener("change", () => {
         object.completed = checkbox.checked;
@@ -60,13 +64,13 @@ function displayOnPage(object, index) {
         taskStorage.splice(index, 1);
         renderTasks();
     })
-    //Fix this!!!!!!!!!!!!!1
-    deleteCompleted.addEventListener("click", () => {
-        taskStorage = taskStorage.filter((object) => {
-            return !object.completed;
-        })//Returns filtered array back to taskStorage
-        renderTasks()
-    })
+    // //Fix this!!!!!!!!!!!!!1
+    // deleteCompleted.addEventListener("click", () => {
+    //     taskStorage = taskStorage.filter((object) => {
+    //         return !object.completed;
+    //     })//Returns filtered array back to taskStorage
+    //     renderTasks()
+    // })
 
 }
 
