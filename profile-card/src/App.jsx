@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import ProfileCard from './ProfileCard'
+import CounterExample from '../../counter-example/src/CounterExample'
 
 // import React from 'react';
 

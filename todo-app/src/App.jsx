@@ -1,53 +1,66 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import TodoForm from '/components/TodoForm'
-import TodoItem from '/components/TodoItem'
-import TodoList from '/components/TodoList'
 
-// Main App component
 function App() {
   const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  function handleInputChange(event) {
+    setInputValue(event.target.value)
+  }
+
+  function handleDelete(todoId) {
+    const updatedTodos = todos.filter(todo => todo.id !== todoId);
+    setTodos(updatedTodos);
+  }
+
   
-  // Add a new todo
-  function addTodo(text) {
-    const newTodo = {
-      id: Date.now(),
-      text: text,
-      completed: false
-    };
-    setTodos([...todos, newTodo]);
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Prevents page from refreshing
+
+    if (inputValue.trim() !== "") {
+      const newTodo = {
+        id: Date.now(),
+        text: inputValue,
+        completed: false
+      };
+
+             // Array literal
+      setTodos([...todos, newTodo]);
+      // Spread syntax copies each element from the existing todos array
+      // into the newly created new array.  newTodo is adding the newly created
+      // object to the end of that array
+
+      setInputValue("");
+    }
+
   }
   
-  // Toggle todo completion status
-  function toggleTodo(id) {
-    setTodos(
-      todos.map(todo => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-      })
-    );
-  }
-  
-  // Delete a todo
-  function deleteTodo(id) {
-    setTodos(todos.filter(todo => todo.id !== id));
-  }
-  
+
   return (
-    <div className="app">
-      <h1>Todo App</h1>
-      <TodoForm addTodo={addTodo} />
-      <TodoList 
-        todos={todos} 
-        toggleTodo={toggleTodo} 
-        deleteTodo={deleteTodo} 
-      />
-    </div>
-  );
+    <>
+      <form onSubmit={handleSubmit}>
+        <input 
+        type="text" 
+        onChange={handleInputChange}
+        value={inputValue} />
+        <button type="submit">Add</button>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              {todo.text}
+              <button onClick={() => handleDelete(todo.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </form>
+
+    </>
+  )
+  
 }
 
-export default App;
+
+
+export default App
