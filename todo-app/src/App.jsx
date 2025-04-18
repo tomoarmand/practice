@@ -1,3 +1,5 @@
+// npm create vite@latest
+
 import { useState } from 'react'
 import './App.css'
 
