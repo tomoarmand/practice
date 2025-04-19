@@ -1,12 +1,26 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import './App.css'
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState("");
 
-  function handleInputChange(event){
-    setInputValue(event.target.value);
+
+function App() {
+
+  const [inputValue, setInputValue] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    setTodos(storedTodos);
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+
+  function handleInputChange(event) {
+    setInputValue(event.target.value)
   }
 
   function handleSubmit(event) {
@@ -16,7 +30,7 @@ function App() {
       id: Date.now(),
       text: inputValue,
       completed: false
-    };
+    }
 
     setTodos([...todos, newTodo]);
 
@@ -24,37 +38,35 @@ function App() {
   }
 
   function handleDelete(todoId) {
-    console.log("Deleting todo with id:", todoId)
-    console.log("Current todos", todos)
-    const updatedTodos = todos.filter(todo => todoId !== todo.id);
-    console.log("Updated todos:", updatedTodos)
-
+    const updatedTodos = todos.filter((todo) => todoId !== todo.id);
     setTodos(updatedTodos);
-
   }
-
 
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-    <input
-    onChange={handleInputChange}
-    type="text"
-    value={inputValue}
-    />
-    <button type="submit">Add</button>
-    <ul>
-      {todos.map((todo) => (
-        <li key={todo.id}>
-          {todo.text}
-          <button onClick={() => handleDelete(todo.id)}>Delete</button>
-        </li>
-      ))}
-    </ul>
-    </form>
+      <form
+        onSubmit={handleSubmit}
+      >
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Add</button>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              {todo.text}
+              <button onClick={() => handleDelete(todo.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </form>
     </>
   )
+  
 }
+
 
 export default App

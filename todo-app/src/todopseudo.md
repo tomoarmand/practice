@@ -19,3 +19,5 @@ setInputValue setter then clears the input field.
 8. Create a handleDelete function that removes a todo item based on its ID.  This is achieved by passing a todoId parameter to the function, using filter() to return an array with only items which do not match the Id of the current item.
 
 This array is then stored in an updatedTodos variable, and the setTodos setter then sets the value of the todos array to the updatedTodos array.
+
+handleInputChange, handleSubmit, handleDelete
