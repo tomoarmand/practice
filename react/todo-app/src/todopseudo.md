@@ -20,4 +20,8 @@ setInputValue setter then clears the input field.
 
 This array is then stored in an updatedTodos variable, and the setTodos setter then sets the value of the todos array to the updatedTodos array.
 
+9.  Create a handleStrike function.  It should take a todoId parameter.  In an updatedTodos variable, if the todoId matched the current object's id, the todos array is mapped to return an object literal containing the current todo with the completed: !todo.completed.  The rest of the todos are then returned, and setTodos sets updatedTodos as the new todos array.
+
+10. A style is added to the returned <li> in the main component.  It should be a textDecoration property with a value conditional to whether todo.completed is true or false.  An checkbox is then added before the text, with checked set to todo.completed, and an onChange listener which calls handleStrike.
+
 handleInputChange, handleSubmit, handleDelete
