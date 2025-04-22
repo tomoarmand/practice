@@ -7,13 +7,13 @@ import { TitleCard } from './TitleCard.jsx'
 
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")) || []);
   const [inputValue, setInputValue] = useState("");
 
-  useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    setTodos(storedTodos);
-  }, []);
+  // useEffect(() => {
+  //   const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  //   setTodos(storedTodos);
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
