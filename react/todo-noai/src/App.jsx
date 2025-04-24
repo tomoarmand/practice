@@ -10,14 +10,13 @@ function App() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     const newTodo = {
       id: Date.now(),
       text: inputValue,
       completed: false
     }
-
     setTodos([...todos, newTodo]);
 
     setInputValue("");
@@ -30,41 +29,41 @@ function App() {
 
   function handleStrike(todoId) {
     const updatedTodos = todos.map((todo) => {
-      if(todoId === todo.id) {
-        return {...todo, completed: !todo.completed}
+      if (todoId == todo.id) {
+        return {todo, completed: !todo.completed}
       }
-
-      return todo;
+      return todo
     })
-    setTodos(updatedTodos);
+    setTodos(updatedTodos)
   }
-
   return (
+    <>
     <form onSubmit={handleSubmit}>
-      <input 
+      <input
       type="text"
-      onChange={handleInputChange}
       value={inputValue}
+      onChange={handleInputChange}
       />
       <button type="submit">Add</button>
       <ul>
-        {todos.map((todo) => (
+        {todos.map((todo) => {
           <li
           key={todo.id}
-          style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-          >
-          <input
-          type="checkbox"
-          onChange={() => handleStrike(todo.id)}
-          checked={todo.completed}
-          />
-          {todo.text}
-          <button onClick={() => handleDelete(todo.id)}>X</button>
+          style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
+            <input 
+            type="checkbox"
+            checked={todo.completed}
+            onChange={() => {handleStrike}}
+            />
+            {todo.text}
+            <button onClick={() => {handleDelete}}>X</button>
           </li>
-        ))}
+        })}
       </ul>
     </form>
+    </>
   )
 }
+
 
 export default App
