@@ -1,10 +1,10 @@
 import './App.css'
-import { use, useState } from 'react'
+import { useState } from 'react'
 
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
-
+  
   function handleInputChange(event) {
     setInputValue(event.target.value);
   }
@@ -24,14 +24,14 @@ function App() {
   }
 
   function handleDelete(todoId) {
-    const updatedTodos = todos.filter((todo) => todo.id !== todoId);
+    const updatedTodos = todos.filter((todo) => todoId !== todo.id);
     setTodos(updatedTodos);
   }
 
   function handleStrike(todoId) {
     const updatedTodos = todos.map((todo) => {
-      if(todo.id === todoId) {
-        return {...todo, completed: !todo.completed}
+      if(todo.id == todoId) {
+        return {...todo, completed: !todo.completed};
       }
       return todo;
     })
@@ -42,8 +42,8 @@ function App() {
     <form onSubmit={handleSubmit}>
       <input
       type="text"
-      onChange={handleInputChange}
       value={inputValue}
+      onChange={handleInputChange}
       />
       <button type="submit">Add</button>
       <ul>
@@ -55,16 +55,16 @@ function App() {
           <input
           type="checkbox"
           checked={todo.completed}
-          onChange={()=>{handleStrike(todo.id)}}
+          onChange={() => {handleStrike(todo.id)}}
           />
           {todo.text}
-          <button onClick={()=>{handleDelete(todo.id)}}>X</button>
+          <button onClick={() => {handleDelete(todo.id)}}>Delete</button>
           </li>
         ))}
-      </ul>
+      </ul>    
     </form>
   )
-
 }
 
 export default App
+
