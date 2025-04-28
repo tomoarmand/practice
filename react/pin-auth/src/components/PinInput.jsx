@@ -1,20 +1,21 @@
 function PinInput({ pin, handlePinChange, onSubmit }) {
     return (
-        <form onSubmit={(event) => {
+        <form onSubmit={(event)=> {
             event.preventDefault()
-            onSubmit()
         }}>
             <input
             type="password"
             value={pin}
             onChange={handlePinChange}
-            placeholder="Enter Pin"
+            placeholder="Enter PIN"
             maxLength="4"
             />
             <button
-            type="button"
+            type="submit"
             onClick={onSubmit}
-            >Submit</button>
+            >
+            Submit
+            </button>
         </form>
     )
 }

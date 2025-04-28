@@ -2,9 +2,9 @@ import './App.css'
 import { useState } from 'react'
 
 function App() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("")
   const [todos, setTodos] = useState([]);
-  
+
   function handleInputChange(event) {
     setInputValue(event.target.value);
   }
@@ -19,18 +19,17 @@ function App() {
     }
 
     setTodos([...todos, newTodo]);
-
     setInputValue("");
   }
 
   function handleDelete(todoId) {
-    const updatedTodos = todos.filter((todo) => todoId !== todo.id);
+    const updatedTodos = todos.filter((todo) => todo.id !== todoId);
     setTodos(updatedTodos);
   }
 
   function handleStrike(todoId) {
     const updatedTodos = todos.map((todo) => {
-      if(todo.id == todoId) {
+      if(todoId == todo.id) {
         return {...todo, completed: !todo.completed};
       }
       return todo;
@@ -58,10 +57,9 @@ function App() {
           onChange={() => {handleStrike(todo.id)}}
           />
           {todo.text}
-          <button onClick={() => {handleDelete(todo.id)}}>Delete</button>
           </li>
         ))}
-      </ul>    
+      </ul>
     </form>
   )
 }

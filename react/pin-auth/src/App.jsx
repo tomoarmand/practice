@@ -7,20 +7,20 @@ import ButterflyGardenImage from './components/ButterflyGardenImage'
 
 function App() {
   const [pin, setPin] = useState("");
-  const [showImage, setShowImage] = useState(false)
+  const [showImage, setShowImage] = useState(false);
   const [error, setError] = useState("");
   const [touristName, setTouristName] = useState("");
 
   useEffect(() => {
     showImage ? setTouristName("John") : setTouristName("");
-  }, [showImage]);
+  }, [showImage])
 
   function handlePinChange(event) {
     setPin(event.target.value);
   }
 
   function handleSubmit() {
-    if(pin === "8008") {
+    if (pin === "8008") {
       setShowImage(true);
       setError("");
     } else {
@@ -30,16 +30,15 @@ function App() {
   }
 
   return (
-    <div>
-      <Header touristName={touristName} showImage={showImage}/>
-        {!showImage && <PinInput
-        pin={pin}
-        handlePinChange={handlePinChange}
-        onSubmit={handleSubmit} 
-        />}
-        {error && <p>{error}</p>}
-        {showImage && <ButterflyGardenImage />}
-    </div>
+    <>
+    <Header
+    touristName={touristName}
+    showImage={showImage}
+     />
+     {!showImage && <PinInput pin={pin} handlePinChange={handlePinChange} onSubmit={handleSubmit} />}
+     {error && <p>{error}</p>}
+     {showImage && <ButterflyGardenImage />}
+    </>
   )
 }
 
