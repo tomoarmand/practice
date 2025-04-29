@@ -19,7 +19,7 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  function handleInputChange(event) {
+  function handleInputChange(event)
     setInputValue(event.target.value)
   }
 
