@@ -57,6 +57,7 @@ function App() {
           onChange={() => {handleStrike(todo.id)}}
           />
           {todo.text}
+          <button onClick={() => {handleDelete(todo.id)}}>Delete</button>
           </li>
         ))}
       </ul>
