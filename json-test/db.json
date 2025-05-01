@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    },
+    {
+      "id": "9520",
+      "title": "new post"
+    },
+    {
+      "id": "22cd",
+      "title": "profile",
+      "name": "Tomo",
+      "Occupation": "Student"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "22cd",
+      "title": "profile",
+      "name": "Tomo",
+      "occupation": "Student"
+    },
+    {
+      "id": "ae9b",
+      "title": "profile",
+      "name": "James",
+      "occupation": "Accountant"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
