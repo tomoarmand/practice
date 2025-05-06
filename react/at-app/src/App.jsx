@@ -15,7 +15,7 @@ function App() {
     const response = await fetch(atApiUrl, {
       method: 'GET',
       headers: {
-        'Ocp-Apim-Subscription-Key': '524249b7f4b845859aa6960ed3cc1acf'
+        'Ocp-Apim-Subscription-Key': import.meta.env.VITE_AT_SUBSCRIPTION_PRIMARY_KEY
       }
     })
     // console.log(response.data)
