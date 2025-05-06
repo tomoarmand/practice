@@ -10,9 +10,9 @@
 
 6. Return a div containing the Header (title prop), TodoForm (onAddTodo prop) and TodoList (todos, onDeleteTodo, onToggleTodo prop).
 
-7. The TodoForm component takes an onAddTodo prop and declared an inputValue useState variable.  It contains a handleInputChange function, and a handleSubmit function, which prevents default behaviour, calls onAddTodo with inputValue as the parameter, and clears the input field.  Return the form.
+7. The TodoForm component takes an onAddTodo prop and declares an inputValue useState variable.  It contains a handleInputChange function, and a handleSubmit function, which prevents default behaviour, calls onAddTodo with inputValue as the parameter, and clears the input field.  Return the form.
 
 8. The TodoItem component takes 3 props (todo, onDelete, onToggle).  It returns a <li> with conditional styling, containing a checkbox, {todo.text} in a <span>, and a delete button.
 
-9. The TodoList component takes 3 props (todos, onDeleteTodo, onToggleTodo).  It returns an <ul> which contains the mapped todo array, returning a TodoItem component for each todo.  Each TodoItem is given a key and the relevant props.
+9. The TodoList component takes 3 props (todos, onDeleteTodo, onToggleTodo).  It returns an <ul> which contains the mapped todos array, returning a TodoItem component for each todo.  Each TodoItem is given a key and the relevant props.
 

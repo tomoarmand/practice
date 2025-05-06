@@ -2,10 +2,10 @@ import './App.css'
 import { useState } from 'react'
 
 function App() {
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
-  function handleInputChange(event) {
+  function handleInputValue(event) {
     setInputValue(event.target.value);
   }
 
@@ -15,15 +15,16 @@ function App() {
     const newTodo = {
       id: Date.now(),
       text: inputValue,
-      completed: false
+      completed: false,
     }
 
     setTodos([...todos, newTodo]);
+
     setInputValue("");
   }
 
   function handleDelete(todoId) {
-    const updatedTodos = todos.filter((todo) => todo.id !== todoId);
+    const updatedTodos = todos.filter((todo) => todoId !== todo.id);
     setTodos(updatedTodos);
   }
 
@@ -38,32 +39,33 @@ function App() {
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <input
       type="text"
       value={inputValue}
-      onChange={handleInputChange}
+      onChange={handleInputValue}
       />
       <button type="submit">Add</button>
-      <ul>
-        {todos.map((todo) => (
-          <li
-          key={todo.id}
-          style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-          >
+    </form>
+    <ul>
+      {todos.map((todo) => (
+        <li
+        key={todo.id}
+        style={{ textDecoration: completed ? "line-through" : "none" }}
+        >
           <input
           type="checkbox"
           checked={todo.completed}
           onChange={() => {handleStrike(todo.id)}}
           />
-          {todo.text}
-          <button onClick={() => {handleDelete(todo.id)}}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </form>
+        {todo.text}
+        <button onClick={() => {handleDelete}}>Delete</button>
+        </li>
+      ))}
+    </ul>
+    </>
   )
 }
 
 export default App
-

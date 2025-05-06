@@ -6,7 +6,7 @@ import WeatherDetails from "./WeatherDetails";
 
 function WeatherPage() {
     const [weather, setWeather] = useState();
-    const [contact, setContact] = useState();
+    const [contacts, setContacts] = useState([]);
 
     const weatherData = async () => {
         const response = await fetch("http://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m");
@@ -15,13 +15,13 @@ function WeatherPage() {
         const data = await response.json();
         setWeather(data);
     }
-
+  
     const contactData = async () => {
         const response = await fetch("http://localhost:3000/contacts");
 
         // console.log(await response.json())
         const data = await response.json();
-        setContact(data);
+        setContacts(data);
     }
 
     useEffect(() => {
@@ -36,7 +36,9 @@ function WeatherPage() {
         {/* {contact && <div>{contact.name}</div>}
         {contact && <div>{contact.occupation}</div>} */}
         <ul>
-            {contact.map}
+            {contacts.map((profile, index)=>(
+                <li key={index}><p>Name: {profile.name}</p><p>Occupation: {profile.occupation}</p></li>
+            ))}
         </ul>
         </div>
         </>
