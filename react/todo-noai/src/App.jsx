@@ -5,7 +5,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
-  function handleInputValue(event) {
+  function handleInputChange(event) {
     setInputValue(event.target.value);
   }
 
@@ -19,19 +19,19 @@ function App() {
     }
 
     setTodos([...todos, newTodo]);
-
     setInputValue("");
   }
 
   function handleDelete(todoId) {
-    const updatedTodos = todos.filter((todo) => todoId !== todo.id);
+    const updatedTodos = todos.filter((todo) => todoId !== todo.id)
+
     setTodos(updatedTodos);
   }
 
   function handleStrike(todoId) {
     const updatedTodos = todos.map((todo) => {
       if(todoId == todo.id) {
-        return {...todo, completed: !todo.completed};
+        return {...todo, completed: !todo.completed}
       }
       return todo;
     })
@@ -44,7 +44,7 @@ function App() {
       <input
       type="text"
       value={inputValue}
-      onChange={handleInputValue}
+      onChange={handleInputChange}
       />
       <button type="submit">Add</button>
     </form>
@@ -52,15 +52,15 @@ function App() {
       {todos.map((todo) => (
         <li
         key={todo.id}
-        style={{ textDecoration: completed ? "line-through" : "none" }}
+        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
         >
-          <input
-          type="checkbox"
-          checked={todo.completed}
-          onChange={() => {handleStrike(todo.id)}}
-          />
+        <input
+        type="checkbox"
+        checked={todo.completed}
+        onChange={() => {handleStrike(todo.id)}}
+        />
         {todo.text}
-        <button onClick={() => {handleDelete}}>Delete</button>
+        <button onClick={() => {handleDelete(todo.id)}}>Delete</button>
         </li>
       ))}
     </ul>
