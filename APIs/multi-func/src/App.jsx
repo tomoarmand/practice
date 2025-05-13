@@ -8,6 +8,7 @@ function App() {
   const [numberFact, setNumberFact] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
   const [birdRecording, setBirdRecording] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchQuotes = async () => {
 
@@ -36,6 +37,7 @@ function App() {
   }
 
   const fetchBirdSounds = async () => {
+    setIsLoading(true);
     const response = await fetch("https://xeno-canto.org/api/2/recordings?query=cnt:brazil");
     const data = await response.json()
 
@@ -48,6 +50,7 @@ function App() {
     setBirdRecording(data.recordings[randomIndex])
 
     setAudioUrl(`https://xeno-canto.org/${data.recordings[randomIndex].id}/download`)
+    setIsLoading(false);
   }
 
   const fetchNumberFact = async () => {
@@ -84,6 +87,7 @@ function App() {
       <p>{numberFact && numberFact.text}</p>
       <button onClick={clearAll}>Clear All</button>
       <button onClick={fetchBirdSounds}>Get Brazilian Bird Sound</button>
+      {isLoading && <p>Loading...</p>}
       {audioUrl &&
         <audio controls>
           <source src={audioUrl} type="audio/mpeg" />
